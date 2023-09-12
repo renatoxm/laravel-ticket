@@ -14,14 +14,14 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Renatoxm\LaravelTicket\Concerns\HasTickets;
 use Renatoxm\LaravelTicket\Contracts\CanUseTickets;
 
-class User extends Model implements CanUseTickets, AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, CanUseTickets
 {
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
-    use MustVerifyEmail;
     use HasFactory;
     use HasTickets;
+    use MustVerifyEmail;
 
     protected $guarded = [];
 }
