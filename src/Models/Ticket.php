@@ -2,26 +2,26 @@
 
 namespace Renatoxm\LaravelTicket\Models;
 
-use Renatoxm\LaravelTicket\Concerns;
-use Renatoxm\LaravelTicket\Scopes\TicketScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Renatoxm\LaravelTicket\Concerns;
+use Renatoxm\LaravelTicket\Scopes\TicketScope;
 
 /**
- * Renatoxm\LaravelTicket\Models\Ticket
+ * Renatoxm\LaravelTicket\Models\Ticket.
  *
  * @property string $uuid
- * @property int $user_id
+ * @property int    $user_id
  * @property string $title
  * @property string $message
  * @property string $priority
  * @property string $status
- * @property bool $is_resolved
- * @property bool $is_locked
- * @property int $assigned_to
+ * @property bool   $is_resolved
+ * @property bool   $is_locked
+ * @property int    $assigned_to
  */
 class Ticket extends Model
 {
@@ -38,7 +38,7 @@ class Ticket extends Model
     protected $guarded = [];
 
     /**
-     * Get User RelationShip
+     * Get User RelationShip.
      */
     public function user(): BelongsTo
     {
@@ -46,7 +46,7 @@ class Ticket extends Model
     }
 
     /**
-     * Get Assigned To User RelationShip
+     * Get Assigned To User RelationShip.
      */
     public function assignedToUser(): BelongsTo
     {
@@ -54,7 +54,7 @@ class Ticket extends Model
     }
 
     /**
-     * Get Messages RelationShip
+     * Get Messages RelationShip.
      */
     public function messages(): HasMany
     {
@@ -67,7 +67,7 @@ class Ticket extends Model
     }
 
     /**
-     * Get Categories RelationShip
+     * Get Categories RelationShip.
      */
     public function categories(): BelongsToMany
     {
@@ -82,7 +82,7 @@ class Ticket extends Model
     }
 
     /**
-     * Get Labels RelationShip
+     * Get Labels RelationShip.
      */
     public function labels(): BelongsToMany
     {

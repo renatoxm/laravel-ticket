@@ -2,14 +2,14 @@
 
 namespace Renatoxm\LaravelTicket\Scopes;
 
+use Illuminate\Database\Eloquent\Builder;
 use Renatoxm\LaravelTicket\Enums\Priority;
 use Renatoxm\LaravelTicket\Enums\Status;
-use Illuminate\Database\Eloquent\Builder;
 
 trait TicketScope
 {
     /**
-     * Get closed tickets
+     * Get closed tickets.
      */
     public function scopeClosed(Builder $builder): Builder
     {
@@ -17,7 +17,7 @@ trait TicketScope
     }
 
     /**
-     * Get opened tickets
+     * Get opened tickets.
      */
     public function scopeOpened(Builder $builder): Builder
     {
@@ -25,7 +25,7 @@ trait TicketScope
     }
 
     /**
-     * Get resolved tickets
+     * Get resolved tickets.
      */
     public function scopeResolved(Builder $builder): Builder
     {
@@ -33,7 +33,7 @@ trait TicketScope
     }
 
     /**
-     * Get unresolved tickets
+     * Get unresolved tickets.
      */
     public function scopeUnresolved(Builder $builder): Builder
     {
@@ -41,7 +41,7 @@ trait TicketScope
     }
 
     /**
-     * Get locked tickets
+     * Get locked tickets.
      */
     public function scopeLocked(Builder $builder): Builder
     {
@@ -49,7 +49,7 @@ trait TicketScope
     }
 
     /**
-     * Get unlocked tickets
+     * Get unlocked tickets.
      */
     public function scopeUnlocked(Builder $builder): Builder
     {
@@ -57,7 +57,7 @@ trait TicketScope
     }
 
     /**
-     * Get custom priority tickets
+     * Get custom priority tickets.
      */
     public function scopeWithPriority(Builder $builder, string $priority): Builder
     {
@@ -65,7 +65,7 @@ trait TicketScope
     }
 
     /**
-     * Get low priority tickets
+     * Get low priority tickets.
      */
     public function scopeWithLowPriority(Builder $builder): Builder
     {
@@ -73,7 +73,7 @@ trait TicketScope
     }
 
     /**
-     * Get normal priority tickets
+     * Get normal priority tickets.
      */
     public function scopeWithNormalPriority(Builder $builder): Builder
     {
@@ -81,7 +81,7 @@ trait TicketScope
     }
 
     /**
-     * Get high priority tickets
+     * Get high priority tickets.
      */
     public function scopeWithHighPriority(Builder $builder): Builder
     {
@@ -89,7 +89,7 @@ trait TicketScope
     }
 
     /**
-     * Get archived tickets
+     * Get archived tickets.
      */
     public function scopeArchived(Builder $builder): Builder
     {
@@ -97,7 +97,7 @@ trait TicketScope
     }
 
     /**
-     * Get unarchived tickets
+     * Get unarchived tickets.
      */
     public function scopeUnArchived(Builder $builder): Builder
     {

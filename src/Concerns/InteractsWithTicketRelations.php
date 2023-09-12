@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 trait InteractsWithTicketRelations
 {
     /**
-     * Associate Labels into an existing ticket
+     * Associate Labels into an existing ticket.
      *
-     * @param  mixed  $id
-     * @param  bool  $touch
+     * @param mixed $id
+     * @param bool  $touch
+     *
      * @return void
      */
     public function attachLabels($id, array $attributes = [], $touch = true)
@@ -21,8 +22,9 @@ trait InteractsWithTicketRelations
     /**
      * Sync the intermediate tables with a list of IDs or collection of the ticket model..
      *
-     * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
-     * @param  bool  $detaching
+     * @param \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array $ids
+     * @param bool                                                                     $detaching
+     *
      * @return array
      */
     public function syncLabels($ids, $detaching = true)
@@ -31,10 +33,11 @@ trait InteractsWithTicketRelations
     }
 
     /**
-     * Associate Categories into an existing ticket
+     * Associate Categories into an existing ticket.
      *
-     * @param  mixed  $id
-     * @param  bool  $touch
+     * @param mixed $id
+     * @param bool  $touch
+     *
      * @return void
      */
     public function attachCategories($id, array $attributes = [], $touch = true)
@@ -45,8 +48,9 @@ trait InteractsWithTicketRelations
     /**
      * Sync the intermediate tables with a list of IDs or collection of the ticket model..
      *
-     * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
-     * @param  bool  $detaching
+     * @param \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array $ids
+     * @param bool                                                                     $detaching
+     *
      * @return array
      */
     public function syncCategories($ids, $detaching = true)
@@ -55,7 +59,7 @@ trait InteractsWithTicketRelations
     }
 
     /**
-     * Add new message on an existing ticket
+     * Add new message on an existing ticket.
      */
     public function message(string $message): Model
     {
@@ -63,7 +67,7 @@ trait InteractsWithTicketRelations
     }
 
     /**
-     * Add new message on an existing ticket as a custom user
+     * Add new message on an existing ticket as a custom user.
      */
     public function messageAsUser(?Model $user, string $message): Model
     {
