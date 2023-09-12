@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Contracts;
+namespace Renatoxm\LaravelTicket\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

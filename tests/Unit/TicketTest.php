@@ -1,6 +1,6 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can store a ticket', function () {
     $ticket = Ticket::factory()->create([

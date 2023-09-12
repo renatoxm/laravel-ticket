@@ -1,7 +1,7 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Message;
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Message;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can store a message', function () {
     $ticket = Ticket::factory()->create([
@@ -14,10 +14,10 @@ it('can store a message', function () {
     );
 
     $message = Message::factory()
-                ->create([
-                    $tableName['columns']['ticket_foreing_id'] => $ticket->id,
-                    'message' => 'Message from a ticket',
-                ]);
+        ->create([
+            $tableName['columns']['ticket_foreing_id'] => $ticket->id,
+            'message' => 'Message from a ticket',
+        ]);
 
     $this->assertDatabaseHas($tableName['table'], [
         $tableName['columns']['ticket_foreing_id'] => $ticket->id,

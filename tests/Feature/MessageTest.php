@@ -1,8 +1,8 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Message;
-use Coderflex\LaravelTicket\Models\Ticket;
-use Coderflex\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Models\Message;
+use Renatoxm\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Tests\Models\User;
 
 it('can attach message to a ticket', function () {
     $message = Message::factory()->create();

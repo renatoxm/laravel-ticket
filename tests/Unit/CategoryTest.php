@@ -1,7 +1,7 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Category;
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Category;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can store a category', function () {
     $ticket = Ticket::factory()->create();

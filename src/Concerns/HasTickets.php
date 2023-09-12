@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Concerns;
+namespace Renatoxm\LaravelTicket\Concerns;
 
-use Coderflex\LaravelTicket\Models\Message;
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Message;
+use Renatoxm\LaravelTicket\Models\Ticket;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait HasTickets

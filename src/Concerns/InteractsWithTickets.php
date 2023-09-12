@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Concerns;
+namespace Renatoxm\LaravelTicket\Concerns;
 
-use Coderflex\LaravelTicket\Enums\Priority;
-use Coderflex\LaravelTicket\Enums\Status;
+use Renatoxm\LaravelTicket\Enums\Priority;
+use Renatoxm\LaravelTicket\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 
 trait InteractsWithTickets
@@ -65,7 +65,7 @@ trait InteractsWithTickets
      */
     public function isClosed(): bool
     {
-        return ! $this->isOpen();
+        return !$this->isOpen();
     }
 
     /**
@@ -81,7 +81,7 @@ trait InteractsWithTickets
      */
     public function isUnresolved(): bool
     {
-        return ! $this->isResolved();
+        return !$this->isResolved();
     }
 
     /**
@@ -97,7 +97,7 @@ trait InteractsWithTickets
      */
     public function isUnlocked(): bool
     {
-        return ! $this->isLocked();
+        return !$this->isLocked();
     }
 
     /**

@@ -1,16 +1,16 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Label;
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Label;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can store a label', function () {
     $ticket = Ticket::factory()->create();
 
     $label = Label::factory()
-                ->create([
-                    'name' => 'Support',
-                    'slug' => 'supoort',
-                ]);
+        ->create([
+            'name' => 'Support',
+            'slug' => 'supoort',
+        ]);
 
     $tableName = config(
         'laravel_ticket.table_names.labels',

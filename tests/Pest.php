@@ -1,6 +1,6 @@
 <?php
 
-use Coderflex\LaravelTicket\Tests\TestCase;
+use Renatoxm\LaravelTicket\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabaseState;
 
 uses(TestCase::class)->in(__DIR__);

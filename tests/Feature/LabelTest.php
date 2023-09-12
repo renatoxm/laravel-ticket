@@ -1,7 +1,7 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Label;
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Label;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can attach label to a ticket', function () {
     $label = Label::factory()->create();

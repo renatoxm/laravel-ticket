@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderflex\LaravelTicket;
+namespace Renatoxm\LaravelTicket;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

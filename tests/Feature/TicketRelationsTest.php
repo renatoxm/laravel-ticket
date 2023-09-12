@@ -1,9 +1,9 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Category;
-use Coderflex\LaravelTicket\Models\Label;
-use Coderflex\LaravelTicket\Models\Ticket;
-use Coderflex\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Models\Category;
+use Renatoxm\LaravelTicket\Models\Label;
+use Renatoxm\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Tests\Models\User;
 
 it('creates a ticket with associated user', function () {
     $user = User::factory()->create();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Enums;
+namespace Renatoxm\LaravelTicket\Enums;
 
 enum Priority: string
 {

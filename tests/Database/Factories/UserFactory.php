@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Tests\Database\Factories;
+namespace Renatoxm\LaravelTicket\Tests\Database\Factories;
 
-use Coderflex\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Tests\Models\User;
 
 class UserFactory extends \Orchestra\Testbench\Factories\UserFactory
 {

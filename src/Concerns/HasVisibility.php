@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Concerns;
+namespace Renatoxm\LaravelTicket\Concerns;
 
-use Coderflex\LaravelTicket\Enums\Visibility;
+use Renatoxm\LaravelTicket\Enums\Visibility;
 use Illuminate\Database\Eloquent\Builder;
 
 trait HasVisibility

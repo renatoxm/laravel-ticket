@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Models;
+namespace Renatoxm\LaravelTicket\Models;
 
-use Coderflex\LaravelTicket\Concerns\HasVisibility;
+use Renatoxm\LaravelTicket\Concerns\HasVisibility;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

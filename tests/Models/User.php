@@ -1,9 +1,9 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Tests\Models;
+namespace Renatoxm\LaravelTicket\Tests\Models;
 
-use Coderflex\LaravelTicket\Concerns\HasTickets;
-use Coderflex\LaravelTicket\Contracts\CanUseTickets;
+use Renatoxm\LaravelTicket\Concerns\HasTickets;
+use Renatoxm\LaravelTicket\Contracts\CanUseTickets;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Auth\Passwords\CanResetPassword;

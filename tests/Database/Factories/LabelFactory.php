@@ -1,8 +1,8 @@
 <?php
 
-namespace Coderflex\LaravelTicket\Tests\Database\Factories;
+namespace Renatoxm\LaravelTicket\Tests\Database\Factories;
 
-use Coderflex\LaravelTicket\Models\Label;
+use Renatoxm\LaravelTicket\Models\Label;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

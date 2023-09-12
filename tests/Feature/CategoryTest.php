@@ -1,7 +1,7 @@
 <?php
 
-use Coderflex\LaravelTicket\Models\Category;
-use Coderflex\LaravelTicket\Models\Ticket;
+use Renatoxm\LaravelTicket\Models\Category;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can attach category to a ticket', function () {
     $category = Category::factory()->create();
