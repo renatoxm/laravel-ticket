@@ -2,13 +2,13 @@
 
 namespace Renatoxm\LaravelTicket\Concerns;
 
-use Renatoxm\LaravelTicket\Enums\Visibility;
 use Illuminate\Database\Eloquent\Builder;
+use Renatoxm\LaravelTicket\Enums\Visibility;
 
 trait HasVisibility
 {
     /**
-     * Determine whether if the model is visible
+     * Determine whether if the model is visible.
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -18,7 +18,7 @@ trait HasVisibility
     }
 
     /**
-     * Determine whether if the model is hidden
+     * Determine whether if the model is hidden.
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */

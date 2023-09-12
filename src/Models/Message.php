@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Renatoxm\LaravelTicket\Models\Message
+ * Renatoxm\LaravelTicket\Models\Message.
  *
- * @property int $user_id
+ * @property int    $user_id
  * @property string $message
  */
 class Message extends Model
@@ -24,7 +24,7 @@ class Message extends Model
     protected $guarded = [];
 
     /**
-     * Get Ticket RelationShip
+     * Get Ticket RelationShip.
      */
     public function ticket(): BelongsTo
     {
@@ -37,7 +37,7 @@ class Message extends Model
     }
 
     /**
-     * Get Message Relationship
+     * Get Message Relationship.
      */
     public function user(): BelongsTo
     {

@@ -2,14 +2,14 @@
 
 namespace Renatoxm\LaravelTicket\Concerns;
 
+use Illuminate\Database\Eloquent\Model;
 use Renatoxm\LaravelTicket\Enums\Priority;
 use Renatoxm\LaravelTicket\Enums\Status;
-use Illuminate\Database\Eloquent\Model;
 
 trait InteractsWithTickets
 {
     /**
-     * Archive the ticket
+     * Archive the ticket.
      */
     public function archive(): self
     {
@@ -21,7 +21,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Close the ticket
+     * Close the ticket.
      */
     public function close(): self
     {
@@ -33,7 +33,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Reopen the ticket
+     * Reopen the ticket.
      */
     public function reopen(): self
     {
@@ -45,7 +45,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is archived
+     * Determine if the ticket is archived.
      */
     public function isArchived(): bool
     {
@@ -53,7 +53,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is open
+     * Determine if the ticket is open.
      */
     public function isOpen(): bool
     {
@@ -61,7 +61,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is closed
+     * Determine if the ticket is closed.
      */
     public function isClosed(): bool
     {
@@ -69,7 +69,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is resolved
+     * Determine if the ticket is resolved.
      */
     public function isResolved(): bool
     {
@@ -77,7 +77,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is unresolved
+     * Determine if the ticket is unresolved.
      */
     public function isUnresolved(): bool
     {
@@ -85,7 +85,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is locked
+     * Determine if the ticket is locked.
      */
     public function isLocked(): bool
     {
@@ -93,7 +93,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Determine if the ticket is unresolved
+     * Determine if the ticket is unresolved.
      */
     public function isUnlocked(): bool
     {
@@ -101,7 +101,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Mark the ticket as resolved
+     * Mark the ticket as resolved.
      */
     public function markAsResolved(): self
     {
@@ -113,7 +113,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Mark the ticket as locked
+     * Mark the ticket as locked.
      */
     public function markAsLocked(): self
     {
@@ -125,7 +125,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Mark the ticket as locked
+     * Mark the ticket as locked.
      */
     public function markAsUnlocked(): self
     {
@@ -137,7 +137,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Mark the ticket as archived
+     * Mark the ticket as archived.
      */
     public function markAsArchived(): self
     {
@@ -147,12 +147,12 @@ trait InteractsWithTickets
     }
 
     /**
-     * Close the ticket and mark it as resolved
+     * Close the ticket and mark it as resolved.
      */
     public function closeAsResolved(): self
     {
         $this->update([
-            'status' => Status::CLOSED->value,
+            'status'      => Status::CLOSED->value,
             'is_resolved' => true,
         ]);
 
@@ -160,12 +160,12 @@ trait InteractsWithTickets
     }
 
     /**
-     * Close the ticket and mark it as unresolved
+     * Close the ticket and mark it as unresolved.
      */
     public function closeAsUnresolved(): self
     {
         $this->update([
-            'status' => Status::CLOSED->value,
+            'status'      => Status::CLOSED->value,
             'is_resolved' => false,
         ]);
 
@@ -173,12 +173,12 @@ trait InteractsWithTickets
     }
 
     /**
-     * Reopen the ticket and mark it as resolved
+     * Reopen the ticket and mark it as resolved.
      */
     public function reopenAsUnresolved(): self
     {
         $this->update([
-            'status' => Status::OPEN->value,
+            'status'      => Status::OPEN->value,
             'is_resolved' => false,
         ]);
 
@@ -186,7 +186,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * Add new message on an existing ticket as a custom user
+     * Add new message on an existing ticket as a custom user.
      */
     public function assignTo(Model|int $user): self
     {
@@ -198,7 +198,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * make ticket priority as low
+     * make ticket priority as low.
      */
     public function makePriorityAsLow(): self
     {
@@ -208,7 +208,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * make ticket priority as normal
+     * make ticket priority as normal.
      */
     public function makePriorityAsNormal(): self
     {
@@ -218,7 +218,7 @@ trait InteractsWithTickets
     }
 
     /**
-     * make ticket priority as high
+     * make ticket priority as high.
      */
     public function makePriorityAsHigh(): self
     {

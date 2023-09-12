@@ -2,14 +2,14 @@
 
 namespace Renatoxm\LaravelTicket\Concerns;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Renatoxm\LaravelTicket\Models\Message;
 use Renatoxm\LaravelTicket\Models\Ticket;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait HasTickets
 {
     /**
-     * Get User tickets relationship
+     * Get User tickets relationship.
      */
     public function tickets(): HasMany
     {
@@ -17,7 +17,7 @@ trait HasTickets
     }
 
     /**
-     * Get User tickets relationship
+     * Get User tickets relationship.
      */
     public function messages(): HasMany
     {

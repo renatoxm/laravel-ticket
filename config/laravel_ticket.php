@@ -14,19 +14,19 @@ return [
     */
     'table_names' => [
         /**
-         * Tickets table
+         * Tickets table.
          */
         'tickets' => 'tickets',
         /**
-         * Categories table for the tickets
+         * Categories table for the tickets.
          */
         'categories' => 'categories',
         /**
-         * Labels table for the tickets
+         * Labels table for the tickets.
          */
         'labels' => 'labels',
         /**
-         * Messages table to appears in the ticket
+         * Messages table to appears in the ticket.
          */
         'messages' => [
             'table' => 'messages',
@@ -34,12 +34,12 @@ return [
              * This is the foreing key for associated to the ticket
              * If you renamed the ticket table, you should consider
              * changing this column as well to follow the laravel
-             * convention, "table_id"
+             * convention, "table_id".
              *
              * @see https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
              */
             'columns' => [
-                'user_foreing_id' => 'user_id',
+                'user_foreing_id'   => 'user_id',
                 'ticket_foreing_id' => 'ticket_id',
             ],
         ],
@@ -52,24 +52,24 @@ return [
          * @see https://laravel.com/docs/9.x/eloquent-relationships#many-to-many
          */
         'label_ticket' => [
-            'table' => 'label_ticket',
+            'table'   => 'label_ticket',
             'columns' => [
-                'label_foreign_id' => 'label_id',
+                'label_foreign_id'  => 'label_id',
                 'ticket_foreign_id' => 'ticket_id',
             ],
         ],
         /**
          * Many to Many relationship between the tickets table
          * and the categories table, the above description, applies
-         * to this also
+         * to this also.
          *
          * @see https://laravel.com/docs/9.x/eloquent-relationships#many-to-many
          */
         'category_ticket' => [
-            'table' => 'category_ticket',
+            'table'   => 'category_ticket',
             'columns' => [
                 'category_foreign_id' => 'category_id',
-                'ticket_foreign_id' => 'ticket_id',
+                'ticket_foreign_id'   => 'ticket_id',
             ],
         ],
     ],

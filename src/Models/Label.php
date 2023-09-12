@@ -2,10 +2,10 @@
 
 namespace Renatoxm\LaravelTicket\Models;
 
-use Renatoxm\LaravelTicket\Concerns\HasVisibility;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Renatoxm\LaravelTicket\Concerns\HasVisibility;
 
 class Label extends Model
 {
@@ -20,7 +20,7 @@ class Label extends Model
     protected $guarded = [];
 
     /**
-     * Get Tickets RelationShip
+     * Get Tickets RelationShip.
      */
     public function tickets(): BelongsToMany
     {
