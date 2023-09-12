@@ -16,9 +16,6 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
-          coverage: none
-        with:
           php-version: '8.2'
           coverage: none
 
