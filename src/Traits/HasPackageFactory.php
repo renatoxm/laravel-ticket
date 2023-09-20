@@ -14,7 +14,7 @@ trait HasPackageFactory
         $package = Str::before(get_called_class(), 'Models\\');
         $modelName = Str::after(get_called_class(), 'Models\\');
         // $path = $package . 'Database\\Factories\\' . $modelName . 'Factory';
-        $path = 'Renatoxm\\LaravelTicket\\Database\\Factories\\' . $modelName . 'Factory';
+        $path = 'Renatoxm\\LaravelTicket\\Database\\Factories\\'.$modelName.'Factory';
 
         return $path::new();
     }
