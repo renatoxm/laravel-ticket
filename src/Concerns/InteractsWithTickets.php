@@ -65,7 +65,7 @@ trait InteractsWithTickets
      */
     public function isClosed(): bool
     {
-        return !$this->isOpen();
+        return ! $this->isOpen();
     }
 
     /**
@@ -81,7 +81,7 @@ trait InteractsWithTickets
      */
     public function isUnresolved(): bool
     {
-        return !$this->isResolved();
+        return ! $this->isResolved();
     }
 
     /**
@@ -97,7 +97,7 @@ trait InteractsWithTickets
      */
     public function isUnlocked(): bool
     {
-        return !$this->isLocked();
+        return ! $this->isLocked();
     }
 
     /**
@@ -152,7 +152,7 @@ trait InteractsWithTickets
     public function closeAsResolved(): self
     {
         $this->update([
-            'status'      => Status::CLOSED->value,
+            'status' => Status::CLOSED->value,
             'is_resolved' => true,
         ]);
 
@@ -165,7 +165,7 @@ trait InteractsWithTickets
     public function closeAsUnresolved(): self
     {
         $this->update([
-            'status'      => Status::CLOSED->value,
+            'status' => Status::CLOSED->value,
             'is_resolved' => false,
         ]);
 
@@ -178,7 +178,7 @@ trait InteractsWithTickets
     public function reopenAsUnresolved(): self
     {
         $this->update([
-            'status'      => Status::OPEN->value,
+            'status' => Status::OPEN->value,
             'is_resolved' => false,
         ]);
 

@@ -190,7 +190,7 @@ it('can mark a ticket as unlocked', function () {
 it('can mark a ticket as closed & resolved', function () {
     $ticket = Ticket::factory()->create([
         'is_resolved' => false,
-        'status'      => 'open',
+        'status' => 'open',
     ]);
 
     $ticket->closeAsResolved();
@@ -202,7 +202,7 @@ it('can mark a ticket as closed & resolved', function () {
 it('can mark a ticket as closed & unresolved', function () {
     $ticket = Ticket::factory()->create([
         'is_resolved' => true,
-        'status'      => 'open',
+        'status' => 'open',
     ]);
 
     $ticket->closeAsUnresolved();
@@ -214,7 +214,7 @@ it('can mark a ticket as closed & unresolved', function () {
 it('can mark a ticket as reopened & unresolved', function () {
     $ticket = Ticket::factory()->create([
         'is_resolved' => true,
-        'status'      => 'closed',
+        'status' => 'closed',
     ]);
 
     $ticket->reopenAsUnresolved();
@@ -240,7 +240,7 @@ it('can mark a ticket as locked & unlocked', function () {
 
 it('ensures ticket methods are chainable', function () {
     $ticket = Ticket::factory()->create([
-        'status'    => 'open',
+        'status' => 'open',
         'is_locked' => false,
     ]);
 
