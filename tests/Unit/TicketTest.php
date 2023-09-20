@@ -4,7 +4,7 @@ use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can store a ticket', function () {
     $ticket = Ticket::factory()->create([
-        'title' => 'IT Support',
+        'title'   => 'IT Support',
         'message' => 'Another Issue as always',
     ]);
 
@@ -14,7 +14,7 @@ it('can store a ticket', function () {
     );
 
     $this->assertDatabaseHas($tableName, [
-        'title' => 'IT Support',
+        'title'   => 'IT Support',
         'message' => 'Another Issue as always',
     ]);
 

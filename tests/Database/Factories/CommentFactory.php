@@ -16,9 +16,9 @@ class CommentFactory extends Factory
         $tableName = config('laravel_ticket.table_names.comments', 'comments');
 
         return [
-            'user_id' => User::factory(),
+            'user_id'                                  => User::factory(),
             $tableName['columns']['ticket_foreing_id'] => Ticket::factory(),
-            'comment' => $this->faker->paragraph(2),
+            'comment'                                  => $this->faker->paragraph(2),
         ];
     }
 }
