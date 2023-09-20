@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Renatoxm\LaravelTicket\Models\Comment.
  *
- * @property int    $user_id
+ * @property int $user_id
  * @property string $comment
  */
 class Comment extends Model

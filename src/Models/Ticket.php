@@ -16,15 +16,15 @@ use Renatoxm\LaravelTicket\Scopes\TicketScope;
  * Renatoxm\LaravelTicket\Models\Ticket.
  *
  * @property string $uuid
- * @property int    $owner_id
+ * @property int $owner_id
  * @property string $owner_type
  * @property string $title
  * @property string $message
  * @property string $priority
  * @property string $status
- * @property bool   $is_resolved
- * @property bool   $is_locked
- * @property int    $assigned_to
+ * @property bool $is_resolved
+ * @property bool $is_locked
+ * @property int $assigned_to
  */
 class Ticket extends Model
 {
