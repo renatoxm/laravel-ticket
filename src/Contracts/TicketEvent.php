@@ -8,7 +8,8 @@ use Renatoxm\LaravelTicket\Models\Ticket;
 
 abstract class TicketEvent
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable;
+    use SerializesModels;
 
     public $ticket;
 

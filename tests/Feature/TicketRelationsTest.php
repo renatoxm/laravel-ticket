@@ -9,7 +9,7 @@ it('creates a ticket with its associated user', function () {
     $user = User::factory()->create();
 
     Ticket::factory()->create([
-        'title' => 'IT Support',
+        'title'   => 'IT Support',
         'user_id' => $user->id,
     ]);
 
@@ -18,7 +18,6 @@ it('creates a ticket with its associated user', function () {
 });
 
 it('creates a ticket with its associated assignees', function () {
-
     $user = User::factory()->create();
     $ticket = Ticket::factory()->create();
 
@@ -40,11 +39,9 @@ it('creates a ticket with its associated assignees', function () {
     // dump($var);
 
     $this->assertEquals($user->assignedtickets()->count(), 1);
-
 });
 
 it('get user assigned tickets', function () {
-
     $tickets = Ticket::factory()->count(5)->create();
     $user = User::factory()->create();
 
@@ -54,7 +51,6 @@ it('get user assigned tickets', function () {
     }
 
     $this->assertEquals($user->assignedtickets()->count(), 5);
-
 });
 
 it('associates labels to a ticket', function () {
@@ -128,7 +124,6 @@ it('can create a comment inside the ticket by authenticated user', function () {
 });
 
 it('can create a comment inside the ticket by another user', function () {
-
     $this->actingAs($user = User::factory()->create());
 
     $anotherUser = User::factory()->create();
