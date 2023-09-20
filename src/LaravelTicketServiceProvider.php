@@ -24,7 +24,7 @@ class LaravelTicketServiceProvider extends PackageServiceProvider
                 'create_labels_table',
                 'create_category_ticket_table',
                 'create_label_ticket_table',
-                'create_ticketables_table.php',
+                'create_ticketables_table',
             );
     }
 }
