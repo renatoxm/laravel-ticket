@@ -2,14 +2,14 @@
 
 namespace Renatoxm\LaravelTicket\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Renatoxm\LaravelTicket\Concerns\HasVisibility;
+use Renatoxm\LaravelTicket\Traits\HasPackageFactory;
 
 class Label extends Model
 {
-    use HasFactory;
+    use HasPackageFactory;
     use HasVisibility;
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Renatoxm\LaravelTicket\Tests\Database\Factories;
+namespace Renatoxm\LaravelTicket\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Renatoxm\LaravelTicket\Models\Ticket;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Renatoxm\LaravelTicket\Tests\Database\Factories;
+namespace Renatoxm\LaravelTicket\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Renatoxm\LaravelTicket\Models\Category;
+use Renatoxm\LaravelTicket\Models\Label;
 
-class CategoryFactory extends Factory
+class LabelFactory extends Factory
 {
-    protected $model = Category::class;
+    protected $model = Label::class;
 
     public function definition()
     {

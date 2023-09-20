@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Renatoxm\LaravelTicket\Concerns;
 use Renatoxm\LaravelTicket\Events;
 use Renatoxm\LaravelTicket\Scopes\TicketScope;
+use Renatoxm\LaravelTicket\Traits\HasPackageFactory;
 
 /**
  * Renatoxm\LaravelTicket\Models\Ticket.
@@ -30,7 +31,7 @@ class Ticket extends Model
 {
     use Concerns\InteractsWithTicketRelations;
     use Concerns\InteractsWithTickets;
-    use HasFactory;
+    use HasPackageFactory;
     use TicketScope;
 
     /**
