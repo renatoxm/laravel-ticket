@@ -114,13 +114,13 @@ class Ticket extends Model
 
     // https://laravel-news.com/laravel-model-events-getting-started
     protected $dispatchesEvents = [
-        'saving'   => Events\TicketSaving::class,
-        'saved'    => Events\TicketSaved::class,
+        'saving' => Events\TicketSaving::class,
+        'saved' => Events\TicketSaved::class,
         'creating' => Events\TicketCreating::class,
-        'created'  => Events\TicketCreated::class,
+        'created' => Events\TicketCreated::class,
         'updating' => Events\TicketUpdating::class,
-        'updated'  => Events\TicketUpdated::class,
+        'updated' => Events\TicketUpdated::class,
         'deleting' => Events\TicketDeleting::class,
-        'deleted'  => Events\TicketDeleted::class,
+        'deleted' => Events\TicketDeleted::class,
     ];
 }
