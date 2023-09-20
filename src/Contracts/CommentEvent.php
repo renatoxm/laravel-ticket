@@ -2,8 +2,8 @@
 
 namespace Renatoxm\LaravelTicket\Contracts;
 
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 use Renatoxm\LaravelTicket\Models\Comment;
 
 abstract class CommentEvent

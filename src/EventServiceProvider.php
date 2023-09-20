@@ -14,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         TicketUpdated::class => [
             UpdatePostTitle::class,
-        ]
+        ],
     ];
 
     /**

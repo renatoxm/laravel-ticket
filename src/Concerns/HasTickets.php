@@ -14,5 +14,4 @@ trait HasTickets
     {
         return $this->hasMany(Config::ticketModelClass(), 'user_id');
     }
-
 }

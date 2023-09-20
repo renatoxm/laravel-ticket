@@ -1,7 +1,6 @@
 <?php
 
 use Renatoxm\LaravelTicket\Models\Ticket;
-use Renatoxm\LaravelTicket\Tests\Models\User;
 
 it('filters tickets by status', function () {
     Ticket::factory()

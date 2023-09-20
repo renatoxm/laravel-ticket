@@ -14,5 +14,4 @@ trait HasAssignedTickets
     {
         return $this->morphToMany(Config::ticketModelClass(), 'ticketable');
     }
-
 }

@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Renatoxm\LaravelTicket\Concerns;
-use Renatoxm\LaravelTicket\Scopes\TicketScope;
 use Renatoxm\LaravelTicket\Events;
+use Renatoxm\LaravelTicket\Scopes\TicketScope;
 
 /**
  * Renatoxm\LaravelTicket\Models\Ticket.

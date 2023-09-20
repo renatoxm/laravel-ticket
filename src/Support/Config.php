@@ -3,8 +3,8 @@
 namespace Renatoxm\LaravelTicket\Support;
 
 use Renatoxm\LaravelTicket\Models\Category;
-use Renatoxm\LaravelTicket\Models\Label;
 use Renatoxm\LaravelTicket\Models\Comment;
+use Renatoxm\LaravelTicket\Models\Label;
 use Renatoxm\LaravelTicket\Models\Ticket;
 
 class Config
@@ -40,5 +40,4 @@ class Config
     {
         return config('laravel_ticket.model.ticket');
     }
-
 }

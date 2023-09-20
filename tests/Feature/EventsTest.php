@@ -1,10 +1,10 @@
 <?php
 
-use Renatoxm\LaravelTicket\Models\Ticket;
 use Illuminate\Support\Facades\Event;
+use Renatoxm\LaravelTicket\Events\TicketCreated;
 // use Illuminate\Support\Facades\Queue;
 // use Renatoxm\LaravelTicket\Listeners\QueueableListener;
-use Renatoxm\LaravelTicket\Events\TicketCreated;
+use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can fire events', function () {
 
