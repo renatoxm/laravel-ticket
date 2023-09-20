@@ -13,8 +13,8 @@ class LabelFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $name = $this->faker->name(),
-            'slug' => Str::slug($name),
+            'name'       => $name = $this->faker->name(),
+            'slug'       => Str::slug($name),
             'is_visible' => $this->faker->randomElement([true, false]),
         ];
     }

@@ -9,8 +9,9 @@ trait InteractsWithTicketRelations
     /**
      * Associate Labels into an existing ticket.
      *
-     * @param  mixed  $id
-     * @param  bool  $touch
+     * @param mixed $id
+     * @param bool  $touch
+     *
      * @return void
      */
     public function attachLabels($id, array $attributes = [], $touch = true)
@@ -21,8 +22,9 @@ trait InteractsWithTicketRelations
     /**
      * Sync the intermediate tables with a list of IDs or collection of the ticket model..
      *
-     * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
-     * @param  bool  $detaching
+     * @param \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array $ids
+     * @param bool                                                                     $detaching
+     *
      * @return array
      */
     public function syncLabels($ids, $detaching = true)
@@ -33,8 +35,9 @@ trait InteractsWithTicketRelations
     /**
      * Associate Categories into an existing ticket.
      *
-     * @param  mixed  $id
-     * @param  bool  $touch
+     * @param mixed $id
+     * @param bool  $touch
+     *
      * @return void
      */
     public function attachCategories($id, array $attributes = [], $touch = true)
@@ -45,8 +48,9 @@ trait InteractsWithTicketRelations
     /**
      * Sync the intermediate tables with a list of IDs or collection of the ticket model..
      *
-     * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
-     * @param  bool  $detaching
+     * @param \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array $ids
+     * @param bool                                                                     $detaching
+     *
      * @return array
      */
     public function syncCategories($ids, $detaching = true)
