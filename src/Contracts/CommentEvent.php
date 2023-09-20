@@ -8,7 +8,8 @@ use Renatoxm\LaravelTicket\Models\Comment;
 
 abstract class CommentEvent
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable;
+    use SerializesModels;
 
     public $comment;
 

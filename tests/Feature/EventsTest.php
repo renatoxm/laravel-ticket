@@ -7,7 +7,6 @@ use Renatoxm\LaravelTicket\Events\TicketCreated;
 use Renatoxm\LaravelTicket\Models\Ticket;
 
 it('can fire events', function () {
-
     Event::fake();
 
     // Event::listen(TicketCreated::class, [TicketListener::class, 'handle']);
@@ -23,5 +22,4 @@ it('can fire events', function () {
     Event::assertDispatched(TicketCreated::class, function ($event) use ($ticket) {
         return $event->ticket->uuid === $ticket->uuid;
     });
-
 });
