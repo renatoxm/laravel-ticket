@@ -9,7 +9,7 @@ it('creates a ticket with its associated user', function () {
     $user = User::factory()->create();
 
     Ticket::factory()->create([
-        'title'   => 'IT Support',
+        'title' => 'IT Support',
         'user_id' => $user->id,
     ]);
 

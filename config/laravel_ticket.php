@@ -11,9 +11,9 @@ return [
     */
     'model' => [
         'category' => Renatoxm\LaravelTicket\Models\Category::class,
-        'label'    => Renatoxm\LaravelTicket\Models\Label::class,
-        'comment'  => Renatoxm\LaravelTicket\Models\Comment::class,
-        'ticket'   => Renatoxm\LaravelTicket\Models\Ticket::class,
+        'label' => Renatoxm\LaravelTicket\Models\Label::class,
+        'comment' => Renatoxm\LaravelTicket\Models\Comment::class,
+        'ticket' => Renatoxm\LaravelTicket\Models\Ticket::class,
     ],
 
     /*
@@ -54,8 +54,8 @@ return [
              * @see https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
              */
             'columns' => [
-                'ticketable_id'     => 'ticketable_id',
-                'ticketable_type'   => 'ticketable_type',
+                'ticketable_id' => 'ticketable_id',
+                'ticketable_type' => 'ticketable_type',
                 'ticket_foreing_id' => 'ticket_id',
             ],
         ],
@@ -73,7 +73,7 @@ return [
              * @see https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
              */
             'columns' => [
-                'user_foreing_id'   => 'user_id',
+                'user_foreing_id' => 'user_id',
                 'ticket_foreing_id' => 'ticket_id',
             ],
         ],
@@ -86,9 +86,9 @@ return [
          * @see https://laravel.com/docs/9.x/eloquent-relationships#many-to-many
          */
         'label_ticket' => [
-            'table'   => 'label_ticket',
+            'table' => 'label_ticket',
             'columns' => [
-                'label_foreign_id'  => 'label_id',
+                'label_foreign_id' => 'label_id',
                 'ticket_foreign_id' => 'ticket_id',
             ],
         ],
@@ -100,10 +100,10 @@ return [
          * @see https://laravel.com/docs/9.x/eloquent-relationships#many-to-many
          */
         'category_ticket' => [
-            'table'   => 'category_ticket',
+            'table' => 'category_ticket',
             'columns' => [
                 'category_foreign_id' => 'category_id',
-                'ticket_foreign_id'   => 'ticket_id',
+                'ticket_foreign_id' => 'ticket_id',
             ],
         ],
     ],
