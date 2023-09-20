@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Renatoxm\LaravelTicket\Models\Message.
+ * Renatoxm\LaravelTicket\Models\Comment.
  *
  * @property int    $user_id
- * @property string $message
+ * @property string $comment
  */
-class Message extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -28,7 +28,7 @@ class Message extends Model
      */
     public function ticket(): BelongsTo
     {
-        $tableName = config('laravel_ticket.table_names.messages', 'messages');
+        $tableName = config('laravel_ticket.table_names.comments', 'comments');
 
         return $this->belongsTo(
             Ticket::class,
@@ -41,7 +41,7 @@ class Message extends Model
      */
     public function user(): BelongsTo
     {
-        $tableName = config('laravel_ticket.table_names.messages', 'message');
+        $tableName = config('laravel_ticket.table_names.comments', 'comments');
 
         return $this->belongsTo(
             config('auth.providers.users.model'),
@@ -57,7 +57,7 @@ class Message extends Model
     public function getTable()
     {
         return config(
-            'laravel_ticket.table_names.messages.table',
+            'laravel_ticket.table_names.comments.table',
             parent::getTable()
         );
     }

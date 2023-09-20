@@ -7,14 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Renatoxm\LaravelTicket\Concerns;
 use Renatoxm\LaravelTicket\Scopes\TicketScope;
+use Renatoxm\LaravelTicket\Events;
 
 /**
  * Renatoxm\LaravelTicket\Models\Ticket.
  *
  * @property string $uuid
- * @property int    $user_id
+ * @property int    $owner_id
+ * @property string $owner_type
  * @property string $title
  * @property string $message
  * @property string $priority
@@ -38,7 +41,7 @@ class Ticket extends Model
     protected $guarded = [];
 
     /**
-     * Get User RelationShip.
+     * Get Owner RelationShip.
      */
     public function user(): BelongsTo
     {
@@ -46,23 +49,23 @@ class Ticket extends Model
     }
 
     /**
-     * Get Assigned To User RelationShip.
+     * Get tickets assigned to users polymorphic many-to-many RelationShip.
      */
-    public function assignedToUser(): BelongsTo
+    public function userassignedtickets(): MorphToMany
     {
-        return $this->belongsTo(config('auth.providers.users.model'), 'assigned_to');
+        return $this->morphedByMany(config('auth.providers.users.model'), 'ticketable');
     }
 
     /**
      * Get Messages RelationShip.
      */
-    public function messages(): HasMany
+    public function comments(): HasMany
     {
-        $tableName = config('laravel_ticket.table_names.messages', 'messages');
+        $table = config('laravel_ticket.table_names.comments', 'comments');
 
         return $this->hasMany(
-            Message::class,
-            (string) $tableName['columns']['ticket_foreing_id'],
+            Comment::class,
+            (string) $table['columns']['ticket_foreing_id'],
         );
     }
 
@@ -108,4 +111,16 @@ class Ticket extends Model
             parent::getTable()
         );
     }
+
+    // https://laravel-news.com/laravel-model-events-getting-started
+    protected $dispatchesEvents = [
+        'saving' => Events\TicketSaving::class,
+        'saved' => Events\TicketSaved::class,
+        'creating' => Events\TicketCreating::class,
+        'created' => Events\TicketCreated::class,
+        'updating' => Events\TicketUpdating::class,
+        'updated' => Events\TicketUpdated::class,
+        'deleting' => Events\TicketDeleting::class,
+        'deleted' => Events\TicketDeleted::class,
+    ];
 }

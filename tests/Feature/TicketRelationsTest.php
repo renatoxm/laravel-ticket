@@ -5,7 +5,7 @@ use Renatoxm\LaravelTicket\Models\Label;
 use Renatoxm\LaravelTicket\Models\Ticket;
 use Renatoxm\LaravelTicket\Tests\Models\User;
 
-it('creates a ticket with associated user', function () {
+it('creates a ticket with its associated user', function () {
     $user = User::factory()->create();
 
     Ticket::factory()->create([
@@ -15,6 +15,46 @@ it('creates a ticket with associated user', function () {
 
     $this->assertEquals($user->tickets()->count(), 1);
     $this->assertEquals($user->tickets()->first()->title, 'IT Support');
+});
+
+it('creates a ticket with its associated assignees', function () {
+
+    $user = User::factory()->create();
+    $ticket = Ticket::factory()->create();
+
+    // $ticket->userassignedtickets()->attach($user); // wont work in this test because User test model is not the same as the config('auth.providers.users.model')
+    $user->assignedtickets()->attach($ticket);
+
+    // $entries = DB::table('ticketables')->get();
+
+    // $var = '';
+
+    // foreach ($entries as $entry) {
+
+    //     $id = $entry->ticketable_id;
+    //     $type = $entry->ticketable_type;
+    //     $ticket = $entry->ticket_id;
+    //     $var .= '//' . $id . '++' . $type . '++' . $ticket . '\\';
+    // }
+
+    // dump($var);
+
+    $this->assertEquals($user->assignedtickets()->count(), 1);
+
+});
+
+it('get user assigned tickets', function () {
+
+    $tickets = Ticket::factory()->count(5)->create();
+    $user = User::factory()->create();
+
+    foreach ($tickets as $ticket) {
+        // $ticket->userassignedtickets()->attach($user); // wont work in this test because User test model is not the same as the config('auth.providers.users.model')
+        $user->assignedtickets()->attach($ticket);
+    }
+
+    $this->assertEquals($user->assignedtickets()->count(), 5);
+
 });
 
 it('associates labels to a ticket', function () {
@@ -77,26 +117,27 @@ it('sync categories to a ticket without detaching', function () {
     $this->assertEquals($ticket->categories->count(), 5);
 });
 
-it('can create a message inside the ticket by authenticated user', function () {
+it('can create a comment inside the ticket by authenticated user', function () {
     $this->actingAs(User::factory()->create());
 
     $ticket = Ticket::factory()->create();
 
-    $ticket->message('How are you today?');
+    $ticket->comment('How are you today?');
 
-    $this->assertEquals($ticket->messages->count(), 1);
+    $this->assertEquals($ticket->comments->count(), 1);
 });
 
-it('can create a message inside the ticket by another user', function () {
-    $this->actingAs($user = User::factory()->create());
-    $anotherUser = User::factory()->create();
+it('can create a comment inside the ticket by another user', function () {
 
+    $this->actingAs($user = User::factory()->create());
+
+    $anotherUser = User::factory()->create();
     $ticket = Ticket::factory()->create();
 
-    $ticket->messageAsUser($anotherUser, 'How are you today?');
+    $ticket->commentAsUser($anotherUser, 'How are you today?');
 
-    $this->assertEquals($ticket->messages->count(), 1);
-    $this->assertEquals($ticket->messages->first()->user_id, $anotherUser->id);
+    $this->assertEquals($ticket->comments->count(), 1);
+    $this->assertEquals($ticket->comments->first()->user_id, $anotherUser->id);
 });
 
 it('associate a comment ticket to the current user, if no user are defined', function () {
@@ -104,8 +145,8 @@ it('associate a comment ticket to the current user, if no user are defined', fun
 
     $ticket = Ticket::factory()->create();
 
-    $ticket->messageAsUser(null, 'How are you today?');
+    $ticket->commentAsUser(null, 'How are you today?');
 
-    $this->assertEquals($ticket->messages->count(), 1);
-    $this->assertEquals($ticket->messages->first()->user_id, $user->id);
+    $this->assertEquals($ticket->comments->count(), 1);
+    $this->assertEquals($ticket->comments->first()->user_id, $user->id);
 });

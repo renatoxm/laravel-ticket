@@ -5,14 +5,13 @@ namespace Renatoxm\LaravelTicket\Concerns;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Renatoxm\LaravelTicket\Support\Config;
 
-trait HasTickets
+trait HasComments
 {
     /**
-     * Get tickets relationship.
+     * Get User tickets relationship.
      */
-    public function tickets(): HasMany
+    public function comments(): HasMany
     {
-        return $this->hasMany(Config::ticketModelClass(), 'user_id');
+        return $this->hasMany(Config::commentModelClass(), 'user_id');
     }
-
 }

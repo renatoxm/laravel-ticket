@@ -3,22 +3,22 @@
 namespace Renatoxm\LaravelTicket\Tests\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Renatoxm\LaravelTicket\Models\Message;
+use Renatoxm\LaravelTicket\Models\Comment;
 use Renatoxm\LaravelTicket\Models\Ticket;
 use Renatoxm\LaravelTicket\Tests\Models\User;
 
-class MessageFactory extends Factory
+class CommentFactory extends Factory
 {
-    protected $model = Message::class;
+    protected $model = Comment::class;
 
     public function definition()
     {
-        $tableName = config('laravel_ticket.table_names.messages', 'messages');
+        $tableName = config('laravel_ticket.table_names.comments', 'comments');
 
         return [
             'user_id' => User::factory(),
             $tableName['columns']['ticket_foreing_id'] => Ticket::factory(),
-            'message' => $this->faker->paragraph(2),
+            'comment' => $this->faker->paragraph(2),
         ];
     }
 }

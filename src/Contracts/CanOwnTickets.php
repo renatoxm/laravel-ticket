@@ -4,7 +4,7 @@ namespace Renatoxm\LaravelTicket\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-interface CanUseTickets
+interface CanOwnTickets
 {
     public function tickets(): HasMany;
 }

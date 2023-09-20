@@ -3,6 +3,21 @@
 return [
     /*
     |--------------------------------------------------------------------------
+    | Models
+    |--------------------------------------------------------------------------
+    |
+    | You can change the models if you need customization.
+    |
+    */
+    'model' => [
+        'category' => Renatoxm\LaravelTicket\Models\Category::class,
+        'label' => Renatoxm\LaravelTicket\Models\Label::class,
+        'comment' => Renatoxm\LaravelTicket\Models\Comment::class,
+        'ticket' => Renatoxm\LaravelTicket\Models\Ticket::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Tables Names
     |--------------------------------------------------------------------------
     |
@@ -26,10 +41,29 @@ return [
          */
         'labels' => 'labels',
         /**
-         * Messages table to appears in the ticket.
+         * Owners table for the ticketables.
          */
-        'messages' => [
-            'table' => 'messages',
+        'ticketables' => [
+            'table' => 'ticketables',
+            /**
+             * This is the foreing key for associated to the ticket
+             * If you renamed the ticket table, you should consider
+             * changing this column as well to follow the laravel
+             * convention, "table_id".
+             *
+             * @see https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
+             */
+            'columns' => [
+                'ticketable_id' => 'ticketable_id',
+                'ticketable_type' => 'ticketable_type',
+                'ticket_foreing_id' => 'ticket_id',
+            ],
+        ],
+        /**
+         * Ticket comments.
+         */
+        'comments' => [
+            'table' => 'comments',
             /**
              * This is the foreing key for associated to the ticket
              * If you renamed the ticket table, you should consider

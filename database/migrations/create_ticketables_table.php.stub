@@ -1,0 +1,31 @@
+<?php
+
+namespace Renatoxm\LaravelTicket\Database\Factories;
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        $tableName = config('laravel_ticket.table_names.ticketables', 'ticketables');
+
+        Schema::create($tableName['table'], function (Blueprint $table) use ($tableName) {
+            $table->id();
+            $table->unsignedBigInteger($tableName['columns']['ticketable_id']);
+            $table->string($tableName['columns']['ticketable_type']);
+            $table->unsignedBigInteger('ticket_id');
+            $table->timestamps();
+
+            $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists($tableName['table']);
+    }
+};

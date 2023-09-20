@@ -1,4 +1,4 @@
-# Laravel-tickets
+# Laravel-ticket
 
 Backend API to handle your ticket system.
 
@@ -12,9 +12,10 @@ Backend API to handle your ticket system.
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Preparing your model](#preparing-your-model)
+- [Model customization](#model-customization)
 - [Usage](#usage)
   - [Ticket Table Structure](#ticket-table-structure)
-  - [Message Table Structure](#message-table-structure)
+  - [Comment Table Structure](#comment-table-structure)
   - [Label Table Structure](#label-table-structure)
   - [Category Table Structure](#category-table-structure)
 - [API Methods](#api-methods)
@@ -23,6 +24,7 @@ Backend API to handle your ticket system.
   - [Ticket Scopes](#ticket-scopes)
   - [Category \& Label Scopes](#category--label-scopes)
 - [Handling File Upload](#handling-file-upload)
+- [Event System](#event-system)
 - [Testing](#testing)
 - [Changelog](#changelog)
 - [Contributing](#contributing)
@@ -33,6 +35,13 @@ Backend API to handle your ticket system.
 ## Introduction
 
 **Laravel Ticket** package, is a Backend API to handle your ticket system, with an easy way. It was forked from [CoderFlex Laravel-ticket](https://github.com/coderflexx/laravel-ticket) and refactored to allow model updates and be more flexible to match your app requirements.
+
+**Main differences:**
+
+- All models can be copied and altered to meet your requirements; all you need to do is change the paths in config/laravel-ticket.php.
+- Tickets can be assigned to a user model, groups, or teams via a polymorphic many-to-many relationship.
+- Messages model was renamed to Comments model for semantic purposes.
+- Event support is provided for changes of state in both the Ticket and Comment models.
 
 ## Installation
 
@@ -77,6 +86,19 @@ class User extends Model implements CanUseTickets
     use HasTickets;
     ...
 }
+```
+
+## Model customization
+
+You can copy one or more of the package models to your `App/Models` folder to customize them to suit your needs. All you need to do is change the class paths in your config/laravel-ticket.php and you are good to go.
+
+```php
+    'model' => [
+        'category' => Renatoxm\LaravelTicket\Models\Category::class,
+        'label' => Renatoxm\LaravelTicket\Models\Label::class,
+        'comment' => Renatoxm\LaravelTicket\Models\Comment::class,
+        'ticket' => Renatoxm\LaravelTicket\Models\Ticket::class,
+    ],
 ```
 
 ## Usage
@@ -149,7 +171,7 @@ public function createCategory()
 | UUID        | `string`    | `NULL`     |
 | user_id     | `integer`   | `NOT NULL` |
 | title       | `string`    | `NOT NULL` |
-| message     | `string`    | `NULL`     |
+| comment     | `string`    | `NULL`     |
 | priority    | `string`    | `low`      |
 | status      | `string`    | `open`     |
 | is_resolved | `boolean`   | `false`    |
@@ -158,14 +180,14 @@ public function createCategory()
 | created_at  | `timestamp` | `NULL`     |
 | updated_at  | `timestamp` | `NULL`     |
 
-### Message Table Structure
+### Comment Table Structure
 
 | Column Name | Type        | Default    |
 | ----------- | ----------- | ---------- |
 | ID          | `integer`   | `NOT NULL` |
 | user_id     | `integer`   | `NOT NULL` |
 | ticket_id   | `integer`   | `NOT NULL` |
-| message     | `string`    | `NULL`     |
+| comment     | `string`    | `NULL`     |
 | created_at  | `timestamp` | `NULL`     |
 | updated_at  | `timestamp` | `NULL`     |
 
@@ -239,8 +261,8 @@ The `ticket` model has also a list of methods for interacting with another relat
 | `syncLabels`       | `Model/array` IDs, `bool` detouching         | associate labels into an existing ticket                  | `$ticket->syncLabels([1,2,3,4])`                         |
 | `attachCategories` | `mixed` ID, `array` attributes, `bool` touch | associate categories into an existing ticket              | `$ticket->attachCategories([1,2,3,4])`                   |
 | `syncCategories`   | `Model/array` IDs, `bool` detouching         | associate categories into an existing ticket              | `$ticket->syncCategories([1,2,3,4])`                     |
-| `message`          | `string` message                             | add new message on an existing ticket                     | `$ticket->message('A message in a ticket')`              |
-| `messageAsUser`    | `Model/null` user, `string` message          | add new message on an existing ticket as a different user | `$ticket->messageAsUser($user, 'A message in a ticket')` |
+| `comment`          | `string` comment                             | add new comment on an existing ticket                     | `$ticket->comment('A comment in a ticket')`              |
+| `commentAsUser`    | `Model/null` user, `string` comment          | add new comment on an existing ticket as a different user | `$ticket->commentAsUser($user, 'A comment in a ticket')` |
 
 > The `attachCategories` and `syncCategories` methods, is an alternative for `attach` and `sync` laravel methods, and if you want to learn more, please take a look at this [link](https://laravel.com/docs/9.x/eloquent-relationships#attaching-detaching)
 
@@ -280,7 +302,7 @@ The steps are pretty straight forward, all what you need to do is the following.
 
 Extends the `Ticket` model, by creating a new model file in your application by
 
-```
+```bash
 php artisan make:model Ticket
 ```
 
@@ -298,6 +320,49 @@ class Ticket extends \Renatoxm\LaravelTicket\Models\Ticket implements HasMedia
 ```
 
 The rest of the implementation, head to [the docs](https://spatie.be/docs/laravel-medialibrary/v10/introduction) of spatie package to know more.
+
+## Event system
+
+All events are located in the `Renatoxm\laravel-ticket\Events` namespace.
+
+### Ticket events
+
+The following events are dispatched as a result of Eloquent events being fired.
+
+- TicketCreating
+- TicketCreated
+- TicketSaving
+- TicketSaved
+- TicketUpdating
+- TicketUpdated
+- TicketDeleting
+- TicketDeleted
+
+### Comment events
+
+The following events are dispatched as a result of Eloquent events being fired.
+
+- CommentCreating
+- CommentCreated
+- CommentSaving
+- CommentSaved
+- CommentUpdating
+- CommentUpdated
+- CommentDeleting
+- CommentDeleted
+
+### Consuming events
+
+```php
+use Renatoxm\LaravelTicket\Events\TicketCreated;
+
+Event::listen(function (TicketCreated $event) {
+    dump($event->ticket->title);
+});
+
+// or
+Event::listen(TicketCreated::class, [SomeListener::class, 'handle']);
+```
 
 ## Testing
 

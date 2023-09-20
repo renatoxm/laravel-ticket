@@ -1,29 +1,29 @@
 <?php
 
-use Renatoxm\LaravelTicket\Models\Message;
+use Renatoxm\LaravelTicket\Models\Comment;
 use Renatoxm\LaravelTicket\Models\Ticket;
 
-it('can store a message', function () {
+it('can store a comment', function () {
     $ticket = Ticket::factory()->create([
         'title' => 'Laravel is cool!',
     ]);
 
     $tableName = config(
-        'laravel_ticket.table_names.messages',
-        'messages'
+        'laravel_ticket.table_names.comments',
+        'comments'
     );
 
-    $message = Message::factory()
+    $comment = Comment::factory()
         ->create([
             $tableName['columns']['ticket_foreing_id'] => $ticket->id,
-            'message' => 'Message from a ticket',
+            'comment' => 'Comment from a ticket',
         ]);
 
     $this->assertDatabaseHas($tableName['table'], [
         $tableName['columns']['ticket_foreing_id'] => $ticket->id,
-        'message' => 'Message from a ticket',
+        'comment' => 'Comment from a ticket',
     ]);
 
-    $this->assertEquals($message->count(), 1);
-    $this->assertEquals($message->ticket->title, 'Laravel is cool!');
+    $this->assertEquals($comment->count(), 1);
+    $this->assertEquals($comment->ticket->title, 'Laravel is cool!');
 });

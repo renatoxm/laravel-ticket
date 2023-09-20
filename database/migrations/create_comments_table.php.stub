@@ -11,14 +11,19 @@ return new class extends Migration
 {
     public function up()
     {
-        $tableName = config('laravel_ticket.table_names.messages', 'messages');
+        $tableName = config('laravel_ticket.table_names.comments', 'comments');
 
         Schema::create($tableName['table'], function (Blueprint $table) use ($tableName) {
             $table->id();
             $table->foreignId($tableName['columns']['user_foreing_id']);
             $table->foreignId($tableName['columns']['ticket_foreing_id']);
-            $table->text('message');
+            $table->text('comment');
             $table->timestamps();
         });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists($tableName);
     }
 };

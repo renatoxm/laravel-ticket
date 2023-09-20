@@ -55,22 +55,22 @@ trait InteractsWithTicketRelations
     }
 
     /**
-     * Add new message on an existing ticket.
+     * Add new comment on an existing ticket.
      */
-    public function message(string $message): Model
+    public function comment(string $comment): Model
     {
-        return $this->messageAsUser(auth()->user(), $message);
+        return $this->commentAsUser(auth()->user(), $comment);
     }
 
     /**
-     * Add new message on an existing ticket as a custom user.
+     * Add new comment on an existing ticket as a custom user.
      */
-    public function messageAsUser(?Model $user, string $message): Model
+    public function commentAsUser(?Model $user, string $comment): Model
     {
-        return $this->messages()->create([
+        return $this->comments()->create([
             'user_id' => $user?->id ?? auth()->id(),
             // @phpstan-ignore-line
-            'message' => $message,
+            'comment' => $comment,
         ]);
     }
 }
