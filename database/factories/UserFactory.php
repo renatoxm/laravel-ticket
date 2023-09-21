@@ -2,7 +2,7 @@
 
 namespace Renatoxm\LaravelTicket\Database\Factories;
 
-use Renatoxm\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Models\User;
 
 class UserFactory extends \Orchestra\Testbench\Factories\UserFactory
 {

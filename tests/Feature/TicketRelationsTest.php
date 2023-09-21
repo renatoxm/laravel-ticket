@@ -3,7 +3,7 @@
 use Renatoxm\LaravelTicket\Models\Category;
 use Renatoxm\LaravelTicket\Models\Label;
 use Renatoxm\LaravelTicket\Models\Ticket;
-use Renatoxm\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Models\User;
 
 it('creates a ticket with its associated user', function () {
     $user = User::factory()->create();

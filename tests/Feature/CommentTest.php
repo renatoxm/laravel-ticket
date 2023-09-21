@@ -2,7 +2,7 @@
 
 use Renatoxm\LaravelTicket\Models\Comment;
 use Renatoxm\LaravelTicket\Models\Ticket;
-use Renatoxm\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Models\User;
 
 it('can attach comment to a ticket', function () {
     $comment = Comment::factory()->create();

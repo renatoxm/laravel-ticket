@@ -1,6 +1,6 @@
 <?php
 
-namespace Renatoxm\LaravelTicket\Tests\Models;
+namespace Renatoxm\LaravelTicket\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;

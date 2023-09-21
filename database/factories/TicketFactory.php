@@ -4,7 +4,7 @@ namespace Renatoxm\LaravelTicket\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Renatoxm\LaravelTicket\Models\Ticket;
-use Renatoxm\LaravelTicket\Tests\Models\User;
+use Renatoxm\LaravelTicket\Models\User;
 
 class TicketFactory extends Factory
 {
