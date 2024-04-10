@@ -15,12 +15,12 @@ it('can store a comment', function () {
 
     $comment = Comment::factory()
         ->create([
-            $tableName['columns']['ticket_foreing_id'] => $ticket->id,
+            $tableName['columns']['ticket_foreign_id'] => $ticket->id,
             'comment' => 'Comment from a ticket',
         ]);
 
     $this->assertDatabaseHas($tableName['table'], [
-        $tableName['columns']['ticket_foreing_id'] => $ticket->id,
+        $tableName['columns']['ticket_foreign_id'] => $ticket->id,
         'comment' => 'Comment from a ticket',
     ]);
 

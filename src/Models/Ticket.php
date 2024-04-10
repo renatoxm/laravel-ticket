@@ -65,7 +65,7 @@ class Ticket extends Model
 
         return $this->hasMany(
             Comment::class,
-            (string) $table['columns']['ticket_foreing_id'],
+            (string) $table['columns']['ticket_foreign_id'],
         );
     }
 

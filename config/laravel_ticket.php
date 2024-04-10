@@ -46,7 +46,7 @@ return [
         'ticketables' => [
             'table' => 'ticketables',
             /**
-             * This is the foreing key for associated to the ticket
+             * This is the foreign key for associated to the ticket
              * If you renamed the ticket table, you should consider
              * changing this column as well to follow the laravel
              * convention, "table_id".
@@ -56,7 +56,7 @@ return [
             'columns' => [
                 'ticketable_id' => 'ticketable_id',
                 'ticketable_type' => 'ticketable_type',
-                'ticket_foreing_id' => 'ticket_id',
+                'ticket_foreign_id' => 'ticket_id',
             ],
         ],
         /**
@@ -73,8 +73,8 @@ return [
              * @see https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
              */
             'columns' => [
-                'user_foreing_id' => 'user_id',
-                'ticket_foreing_id' => 'ticket_id',
+                'user_foreign_id' => 'user_id',
+                'ticket_foreign_id' => 'ticket_id',
             ],
         ],
         /**

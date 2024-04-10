@@ -10,27 +10,25 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Oussama Sid",
-      "email": "oussama@Renatoxm.com",
-      "role": "Developer"
+        "name": "Renato XM",
+        "email": "renatoxm@gmail.com",
+        "homepage": "https://github.com/renatoxm",
+        "role": "Developer"
     }
   ],
   "require": {
     "php": "^8.1",
-    "spatie/laravel-package-tools": "^1.13.0",
-    "illuminate/contracts": "^9.0|^10.0"
+    "spatie/laravel-package-tools": "^1.16.4",
+    "illuminate/contracts": "^10.0|^11.0"
   },
   "require-dev": {
-    "laravel/pint": "^1.0",
-    "nunomaduro/collision": "^6.0|^7.0",
-    "nunomaduro/larastan": "^2.0.1",
-    "orchestra/testbench": "^7.0|^8.0",
-    "pestphp/pest": "^1.21",
-    "pestphp/pest-plugin-laravel": "^1.1",
-    "phpstan/extension-installer": "^1.1",
-    "phpstan/phpstan-deprecation-rules": "^1.0",
-    "phpstan/phpstan-phpunit": "^1.0",
-    "phpunit/phpunit": "^9.5|^10.0"
+    "larastan/larastan": "^2.9.2",
+    "laravel/pint": "^1.15",
+    "nunomaduro/collision": "^7.0|^8.0",
+    "orchestra/testbench": "^8.0|^9.0",
+    "pestphp/pest": "^2.34",
+    "pestphp/pest-plugin-laravel": "^2.3",
+    "phpunit/phpunit": "^10.5"
   },
   "autoload": {
     "psr-4": {
@@ -44,10 +42,10 @@
     }
   },
   "scripts": {
-    "analyse": "vendor/bin/phpstan analyse",
-    "test": "vendor/bin/pest",
-    "test-coverage": "vendor/bin/pest --coverage",
-    "format": "vendor/bin/pint"
+    "analyse": "phpstan analyse",
+    "test": "pest",
+    "test-coverage": "pest --coverage",
+    "format": "pint"
   },
   "config": {
     "sort-packages": true,
